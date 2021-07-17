@@ -21,11 +21,12 @@
 # a Webhook
 import os
 TOKEN = os.environ.get("token")
+PORT = int(os.environ.get('PORT', 5000))
 
 
 def start_bot(updater):
     updater.start_webhook(listen="0.0.0.0",
-                          port=5000,
+                          port=PORT,
                           url_path=TOKEN)
     updater.bot.setWebhook("https://uno-tg-bot.herokuapp.com/" + TOKEN)
     updater.idle()
