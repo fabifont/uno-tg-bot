@@ -28,3 +28,4 @@ def start_bot(updater):
                           port=5000,
                           url_path=TOKEN)
     updater.bot.setWebhook("https://uno-tg-bot.herokuapp.com/" + TOKEN)
+    updater.idle()
