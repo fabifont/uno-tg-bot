@@ -19,7 +19,12 @@
 
 # Modify this file if you want a different startup sequence, for example using
 # a Webhook
+import os
+TOKEN = os.environ.get("token")
 
 
 def start_bot(updater):
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=5000,
+                          url_path=TOKEN)
+    updater.bot.setWebhook("https://uno-tg-bot.herokuapp.com/" + TOKEN)
